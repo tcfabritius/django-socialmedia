@@ -17,5 +17,9 @@ RUN pip install -r requirements.txt
 # Expose the port the app runs on
 EXPOSE 8000
 
+# Run database migrations (place this line below the 'pip install' line)
+RUN python manage.py makemigrations
+RUN python manage.py migrate
+
 # Start the application
 CMD ["python", "manage.py", "runserver", "0.0.0.0:8000"]
